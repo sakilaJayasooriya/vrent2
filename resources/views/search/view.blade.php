@@ -25,7 +25,6 @@
                         <input type="hidden" id="location" value="{{ $location }}">
                         <input type="hidden" id="lat" value="{{ $lat }}">
                         <input type="hidden" id="long" value="{{ $long }}">
-                        <input type="text" id="sakitemp" name="ff" value="total guest:{{ $guest }}">
                     
                         <div class="select col-sm-6 mb20">
                             <select id="search-pg-adult" class="form-control" name="birthday_year">
@@ -395,7 +394,7 @@
             var ad=parseInt($('#search-pg-adult').val());
             var chl=parseInt($('#search-pg-children').val());
             var guest = (ad+chl);
-            $('#sakitemp').val("New total value :"+guest);
+            //$('#sakitemp').val("New total value :"+guest);
 
             url = url||'';
             p = map;
