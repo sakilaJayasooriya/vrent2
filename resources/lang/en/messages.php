@@ -773,7 +773,10 @@ return [
         'property_type'      =>'Property Type',
         'book_type'          =>'Booking Type',
         'cancel'             =>'Cancel',
-        'apply_filter'       =>'Apply Filters'
+        'apply_filter'       =>'Apply Filters',
+        'adult'              =>'Adult',
+        'children'           =>'Children',
+        'infant'             =>'Infant'
     ],
 
     'earning'  => [

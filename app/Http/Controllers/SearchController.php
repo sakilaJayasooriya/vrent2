@@ -26,6 +26,7 @@ class SearchController extends Controller
 
     public function index(Request $request)
     {
+        //dd($request);
         $location = $request->input('location');
         $address  = str_replace(" ", "+", "$location");
         $map_where = 'https://maps.google.com/maps/api/geocode/json?key='.MAP_KEY.'&address='.$address.'&sensor=false';
@@ -43,7 +44,14 @@ class SearchController extends Controller
         $data['location']           = $request->input('location');
         $data['checkin']            = $request->input('checkin');
         $data['checkout']           = $request->input('checkout');
-        $data['guest']              = $request->input('guest');
+        //$data['guest']              = $request->input('guest');
+        
+        $data['adult']              = $request->input('adult');
+        $data['children']           = $request->input('children');
+        $data['infant']             = $request->input('infant');
+
+        $data['guest']              = $data['adult']+$data['children'];
+
         $data['bedrooms']           = $request->input('bedrooms');
         $data['beds']               = $request->input('beds');
         $data['bathrooms']          = $request->input('bathrooms');

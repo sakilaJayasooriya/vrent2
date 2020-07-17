@@ -302,11 +302,18 @@ $("#front-search-form").submit(function(e) {
   e.preventDefault()
     var t = $("#front-search-checkin").val(),
         a = $("#front-search-checkout").val(),
-        o = $("#front-search-guests").val(),
+        //o = $("#front-search-guests").val(),
+
+        //added following 3 lines
+        ad = $("#front-search-adult").val(),
+        ch = $("#front-search-children").val(),
+        inf = $("#front-search-infant").val(),
+
         i = "";
     var n = $("#front-search-field").val(),        
         c = n.replace(" ", "+");
-    window.location.href = APP_URL + "/search?location=" + c + "&checkin=" + t + "&checkout=" + a + "&guest=" + o, e.preventDefault()
+    //window.location.href = APP_URL + "/search?location=" + c + "&checkin=" + t + "&checkout=" + a + "&guest=" + o, e.preventDefault()
+    window.location.href = APP_URL + "/search?location=" + c + "&checkin=" + t + "&checkout=" + a + "&adult=" + ad + "&children=" + ch + "&infant=" + inf , e.preventDefault()
 });
 
 $(function() {

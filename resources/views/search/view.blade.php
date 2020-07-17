@@ -14,22 +14,32 @@
                 <h5 class="col-sm-2 mb20" for="user_birthdate">{{trans('messages.search.dates')}}</h5>
                 <div class="col-sm-10">
                     <div class="row">
-                        <div class="select col-sm-4 mb20">
+                        <div class="select col-sm-6 mb20">
                             <input id="search-pg-checkin" size="30" class="form-control" name="text" value="{{ $checkin ? $checkin : date(Session::get('search_date_format_type')) }}" placeholder="{{trans('messages.search.check_in')}}" type="text">
                         </div>
 
-                        <div class="select col-sm-4 mb20">
+                        <div class="select col-sm-6 mb20">
                             <input id="search-pg-checkout" size="30" class="form-control" name="text"value="{{ $checkout ? $checkout : date(Session::get('search_date_format_type')) }}" placeholder="{{trans('messages.search.check_out')}}" type="text">
                         </div>
                         <input type="hidden" name='location' id="search-pg-location" value="{{$location}}">
                         <input type="hidden" id="location" value="{{ $location }}">
                         <input type="hidden" id="lat" value="{{ $lat }}">
                         <input type="hidden" id="long" value="{{ $long }}">
-                        <div class="select col-sm-4 mb20">
-                            <select id="search-pg-guest" class="form-control" name="birthday_year">
-                                <option value="">{{trans('messages.search.guest')}}</option>
+                        <input type="text" id="sakitemp" name="ff" value="total guest:{{ $guest }}">
+                    
+                        <div class="select col-sm-6 mb20">
+                            <select id="search-pg-adult" class="form-control" name="birthday_year">
+                                <option value="">{{trans('messages.search.adult')}}</option>
                                 @for($i=1;$i<=16;$i++)
-                                    <option value="{{ $i }}" {{ ($guest==$i)?"selected=selected":'' }}> {{ ($i=='16') ? $i.'+ '.'guest' : $i.' '.'guest' }} </option>
+                                    <option value="{{ $i }}" {{ ($adult==$i)?"selected=selected":'' }}> {{ ($i=='16') ? $i.'+ '.'adult' : $i.' '.'adult' }} </option>
+                                @endfor
+                            </select>
+                        </div>
+                        <div class="select col-sm-6 mb20">
+                            <select id="search-pg-children" class="form-control" name="birthday_year">
+                                <option value="">{{trans('messages.search.children')}}</option>
+                                @for($i=1;$i<=16;$i++)
+                                    <option value="{{ $i }}" {{ ($children==$i)?"selected=selected":'' }}> {{ ($i=='16') ? $i.'+ '.'children' : $i.' '.'children' }} </option>
                                 @endfor
                             </select>
                         </div>
@@ -273,6 +283,16 @@
             deleteMarkers();
             getProperties($('#map_view').locationpicker('map').map);
         });
+        $('#search-pg-adult').on('change', function(){
+            allowRefresh = true;
+            deleteMarkers();
+            getProperties($('#map_view').locationpicker('map').map);
+        });
+        $('#search-pg-children').on('change', function(){
+            allowRefresh = true;
+            deleteMarkers();
+            getProperties($('#map_view').locationpicker('map').map);
+        });
 
         $("#search-pg-checkin").datepicker({
             dateFormat:"{{ Session::get('front_date_format_type')}}",
@@ -372,6 +392,11 @@
         }
 
         function getProperties(map,url){
+            var ad=parseInt($('#search-pg-adult').val());
+            var chl=parseInt($('#search-pg-children').val());
+            var guest = (ad+chl);
+            $('#sakitemp').val("New total value :"+guest);
+
             url = url||'';
             p = map;
             var a = p.getZoom(),
@@ -404,8 +429,10 @@
             var bedrooms        = $('#map-search-min-bedrooms').val();
             var checkin         = $('#search-pg-checkin').val();
             var checkout        = $('#search-pg-checkout').val();
-            var guest           = $('#search-pg-guest').val();
+            //var guest           = $('#search-pg-guest').val();
+
             //var map_details = map_details;
+
             var dataURL = '{{url("search/result")}}';
             if(url != '') dataURL = url;
 

@@ -767,7 +767,10 @@ return [
         'amenities'          =>'þægindum',
         'property_type'      =>'eign eign',
         'cancel'             =>'hætta við',
-        'apply_filter'       =>'beita síu'
+        'apply_filter'       =>'beita síu',
+        'adult'              =>'Fullorðinn',
+        'children'           =>'Börn',
+        'infant'             =>'Ungabarn'
     ],
 
     'earning'  => [

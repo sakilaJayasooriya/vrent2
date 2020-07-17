@@ -48,9 +48,6 @@
                         <input class="form-control" name="checkout" id="front-search-checkout" placeholder="{{trans('messages.search.check_out')}}" type="text" readonly="readonly" required>
                       </div>
                     </div>
-                    
-
-
                     <div class="col-sm-6 col-md-2 col-xs-12" style="width: 14.6666666%;">
                       <div class="input-group date mg-check-out col-xs-12">
                         <select id="front-search-adult" class="form-control black-select" name="adult">
