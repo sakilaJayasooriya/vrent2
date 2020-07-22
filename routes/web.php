@@ -80,6 +80,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['guest:admin']], function(){
 	Route::match(array('GET', 'POST'), 'add-properties', 'Admin\PropertiesController@add')->middleware(['permission:add_properties']);
 	Route::get('properties/property_list_csv', 'Admin\PropertiesController@propertyCsv');
 	Route::get('properties/property_list_pdf', 'Admin\PropertiesController@propertyPdf');
+	Route::get('properties/featured_ajax/{id}', 'Admin\PropertiesController@makeFeatured')->middleware(['permission:properties']);
 
 	Route::group(['middleware' => 'permission:edit_properties'], function () {
 	    Route::match(array('GET', 'POST'),'listing/{id}/photo_message', 'Admin\PropertiesController@photoMessage');

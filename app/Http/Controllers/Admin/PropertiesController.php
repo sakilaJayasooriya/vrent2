@@ -610,4 +610,17 @@ class PropertiesController extends Controller
             ->orderBy('properties.id', 'desc');
             return $query;
     }
+    public function makeFeatured(Request $request)
+    {
+       
+        $property         = Properties::find($request->id);
+        $currentStatus=$property->featured;
+        if ($currentStatus==1) {
+            $property->featured=0;
+        } else {
+            $property->featured=1;
+        }
+        $property->save();
+        return json_encode(['success'=>'true']);
+    }
 }

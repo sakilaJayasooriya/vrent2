@@ -111,9 +111,9 @@
       </div>
     </div>
     <div class="container">
-      <div class="row margin-top40" >
+      <div class="row margin-top40">
         @for($i=0;$i<= $city_count-1;$i++)
-        <div class="col-md-4" style="margin-bottom:15px;">
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
           <div class="ex-image-container" style="background-image:url({{ @$starting_cities[$i]->image_url }});">
             <a href="{{URL::to('/')}}/search?location={{$starting_cities[$i]->name}}&source=ds">
               <div class="ex-container">
@@ -129,6 +129,23 @@
           </div>
         </div>
         @endfor
+      </div>
+    </div>
+    <div class="container">
+      <div class="row margin-top40" >
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4">
+          <h4 class="pb-5"><b>For Clean and Comfortable Stay</b></h4><br>
+        </div>
+        @foreach($featuredProperties as $property)
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pt-5">
+          <img class="ex-image-container pb-2" src="{{ url($property->cover_photo) }}" alt="{{$property->name}}">
+          <h5><b><a target="_blank" href="{{ url('properties/'.$property->id) }}">{{$property->name}}</a></b></h5>
+          <p><small>{{$property->property_address->countries->name}}</small><br>
+            <b class="pb-2">Starting From {{$property->property_price->price}} {{$property->property_price->currency->symbol}}</b><br>
+            <span class="startingPrice">{{$property->overall_rating}} </span> <small>   - {{$property->reviews->count()}} reviews</small>
+          </p>
+        </div>
+        @endforeach
       </div>
     </div>
     

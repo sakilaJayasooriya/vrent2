@@ -28,6 +28,15 @@ class PropertyDataTable extends DataTable
             ->addColumn('host_name', function ($properties) {
                 return '<a href="' . url('admin/edit-customer/' . $properties->host_id) . '">' . ucfirst($properties->first_name) . '</a>';
             })
+            ->addColumn('property_featured', function ($properties) {
+                //this addcolmn added newly
+                if ($properties->featured==1) {
+                    $makeFeatured='<button id="btnFeatured" class="btnFeatured btn btn-xs btn-success" value='.$properties->properties_id. '>'.'Featured</button>';
+                } else {
+                    $makeFeatured='<button id="btnFeatured" class="btnFeatured btn btn-xs btn-secondary" value=' .$properties->properties_id. '>' . 'None</button>';
+                }
+                return $makeFeatured;
+            })
             ->addColumn('property_name', function ($properties) {
                 return '<a href="' . url('admin/listing/' . $properties->properties_id . '/basics') . '">' . ucfirst($properties->property_name) . '</a>';
             })
@@ -80,6 +89,8 @@ class PropertyDataTable extends DataTable
             ->addColumn(['data' => 'space_type_name', 'name' => 'space_type.name', 'title' => 'Space Type'])
             ->addColumn(['data' => 'property_status', 'name' => 'properties.status', 'title' => 'Status'])
             ->addColumn(['data' => 'property_created_at', 'name' => 'properties.created_at', 'title' => 'Date'])
+            //added newly
+            ->addColumn(['data' => 'property_featured', 'name' => 'properties.featured', 'title' => 'Featured'])
             ->addColumn(['data' => 'action', 'name' => 'action', 'title' => 'Action', 'orderable' => false, 'searchable' => false])
             ->parameters([
                 'dom' => 'lBfrtip',

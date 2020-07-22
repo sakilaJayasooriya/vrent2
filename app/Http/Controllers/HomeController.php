@@ -18,6 +18,7 @@ use App\Models\StartingCities;
 use App\Models\Banners;
 use App\Models\language;
 use App\Models\Admin;
+use App\Models\Properties;
 use Twilio\Rest\Client;
 
 require base_path() . '/vendor/autoload.php';
@@ -36,6 +37,7 @@ class HomeController extends Controller
         $data['starting_cities']     = StartingCities::where('status', 'Active')->get();
         $data['city_count']          = StartingCities::where('status', 'Active')->get()->count();
         $data['banners']             = Banners::where('status', 'Active')->get();
+        $data['featuredProperties']  = Properties::where('featured', '1')->take(2)->get();
         $sessionLanguage             = Session::get('language');
         $language                    = Settings::where(['name'=>'default_language','type'=>'general'])->first();
         
@@ -52,6 +54,7 @@ class HomeController extends Controller
             }
             Session::put($prefer);
         }
+        //dd($data['featuredProperties']);
         return view('home.home', $data);
     }
     

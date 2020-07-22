@@ -51,6 +51,7 @@ class UserController extends Controller
 
     public function create(Request $request, EmailController $email_controller)
     { 
+        //dd($request);
         $rules = array(
             'first_name'      => 'required|max:255',
             'last_name'       => 'required|max:255',
@@ -81,7 +82,9 @@ class UserController extends Controller
 
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
+
         } else {
+
             $user = new User;
             $user->first_name   =   $request->first_name;
             $user->last_name    =   $request->last_name;
@@ -106,7 +109,7 @@ class UserController extends Controller
             $user_verification->save();
 
             $email_controller->welcome_email($user);
-            
+
             if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
                 $this->helper->one_time_message('success', trans('messages.success.register_success'));
                 return redirect()->intended('dashboard');

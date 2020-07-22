@@ -181,6 +181,33 @@ $(function() {
         event.preventDefault();
         $("#dataTableBuilder").DataTable().ajax.reload();
       });
+
+      //mark as featured
+      $(document).on("click", ".btnFeatured", function(event){
+        event.preventDefault();
+        var sender = $(this);
+        var property_id = sender.prop("value");
+        var dataURL = '{{url("admin/properties/featured_ajax/dataURLStr")}}';
+        dataURL = dataURL.replace('dataURLStr', property_id);
+
+        $.ajax({
+            url: dataURL,
+            type: 'get',
+            dataType: 'json',
+            success: function (result) {
+              $("#dataTableBuilder").DataTable().ajax.reload();
+            },
+            error: function (request, error) {
+              console.log(error);
+            }
+        });
+        
+      });
+
 });
+
+
+
+        
 </script>
 @endsection

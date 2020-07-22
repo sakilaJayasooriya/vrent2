@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddFeaturedToPropertiesTable' => $baseDir . '/database/migrations/2020_07_20_162814_add_featured_to_properties_table.php',
     'AmenitiesTableSeeder' => $baseDir . '/database/seeds/AmenitiesTableSeeder.php',
     'AmenityTypeTableSeeder' => $baseDir . '/database/seeds/AmenityTypeTableSeeder.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',

@@ -478,6 +478,7 @@ class ComposerStaticInitfb00c5b94a6bfe8c61b73a050e7c0b30
     );
 
     public static $classMap = array (
+        'AddFeaturedToPropertiesTable' => __DIR__ . '/../..' . '/database/migrations/2020_07_20_162814_add_featured_to_properties_table.php',
         'AmenitiesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AmenitiesTableSeeder.php',
         'AmenityTypeTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AmenityTypeTableSeeder.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
