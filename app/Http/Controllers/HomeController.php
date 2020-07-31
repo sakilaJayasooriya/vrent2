@@ -12,6 +12,7 @@ use App;
 use Session;
 use Route;
 use App\Models\Currency;
+use App\Models\PropertyType;
 use App\Models\Page;
 use App\Models\Settings;
 use App\Models\StartingCities;
@@ -35,9 +36,10 @@ class HomeController extends Controller
     public function index()
     {
         $data['starting_cities']     = StartingCities::where('status', 'Active')->get();
+        $data['propertyType']     = PropertyType::where('status', 'Active')->get();
         $data['city_count']          = StartingCities::where('status', 'Active')->get()->count();
         $data['banners']             = Banners::where('status', 'Active')->get();
-        $data['featuredProperties']  = Properties::where('featured', '1')->take(2)->get();
+        $data['featuredProperties']  = Properties::where('featured', '1')->take(8)->get();
         $sessionLanguage             = Session::get('language');
         $language                    = Settings::where(['name'=>'default_language','type'=>'general'])->first();
         
@@ -54,7 +56,7 @@ class HomeController extends Controller
             }
             Session::put($prefer);
         }
-        //dd($data['featuredProperties']);
+        //dd($data['propertyType']);
         return view('home.home', $data);
     }
     

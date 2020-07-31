@@ -24,6 +24,56 @@ class StartingCitiesDataTable extends DataTable
             ->addColumn('name', function ($startingCities) {
                 return '<a target="_blank" href="' . url('admin/settings/edit-starting-cities/' . $startingCities->id) . '">' . $startingCities->name . '</a>';
             })
+            ->addColumn('city_description', function ($startingCities) {
+                //this addcolmn added newly
+                if($startingCities->description_city!=null){
+                    $city_des='<p>' .substr($startingCities->description_city,0,20). '.......</p>';
+                }
+                else{
+                    $city_des='<p>Empty</p>';
+                }
+                return $city_des;
+            })
+            ->addColumn('city_weather', function ($startingCities) {
+                //this addcolmn added newly
+                if($startingCities->weather!=null){
+                    $weather='<p>' .$startingCities->weather. '</p>';
+                }
+                else{
+                    $weather='<p>Empty</p>';
+                }
+                return $weather;
+            })
+            ->addColumn('city_population', function ($startingCities) {
+                //this addcolmn added newly
+                if($startingCities->population!=null){
+                    $population='<p>' .$startingCities->population. '</p>';
+                }
+                else{
+                    $population='<p>Empty</p>';
+                }
+                return $population;
+            })
+            ->addColumn('city_mayor', function ($startingCities) {
+                //this addcolmn added newly
+                if($startingCities->mayor!=null){
+                    $mayor='<p>' .$startingCities->mayor. '</p>';
+                }
+                else{
+                    $mayor='<p>Empty</p>';
+                }
+                return $mayor;
+            })
+            ->addColumn('city_municipality', function ($startingCities) {
+                //this addcolmn added newly
+                if($startingCities->municipality!=null){
+                    $municipality='<p>' .$startingCities->municipality. '</p>';
+                }
+                else{
+                    $municipality='<p>Empty</p>';
+                }
+                return $municipality;
+            })
             ->make(true);
     }
 
@@ -41,6 +91,11 @@ class StartingCitiesDataTable extends DataTable
             'image',
         ])
         ->addColumn(['data' => 'action', 'name' => 'action', 'title' => 'Action', 'orderable' => false, 'searchable' => false])
+        ->addColumn(['data' => 'city_description', 'name' => 'properties.city_description', 'title' => 'Description'])
+        ->addColumn(['data' => 'city_weather', 'name' => 'properties.city_weather', 'title' => 'Weather'])
+        ->addColumn(['data' => 'city_population', 'name' => 'properties.city_population', 'title' => 'Population'])
+        ->addColumn(['data' => 'city_mayor', 'name' => 'properties.city_mayor', 'title' => 'Mayor'])
+        ->addColumn(['data' => 'city_municipality', 'name' => 'properties.city_municipality', 'title' => 'Municipality'])
         ->parameters([
             'dom' => 'lBfrtip',
             'buttons' => [],

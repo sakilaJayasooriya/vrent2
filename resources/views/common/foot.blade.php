@@ -57,5 +57,8 @@
         });     
       });
   </script>
+
+  <script src="{{ url('public/front/js/multi-carousel.js') }}"></script>
+
  </body>
 </html>

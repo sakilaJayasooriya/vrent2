@@ -8,7 +8,14 @@ $form_data = [
     'form_type' => 'file',
     'fields' => [
       ['type' => 'text', 'class' => '', 'label' => ' Staring City Name', 'name' => 'name', 'value' => ''],
+      ['type' => 'textarea', 'class' => '', 'label' => ' City Description', 'name' => 'c_description', 'value' => ''],
       ['type' => 'file', 'class' => '', 'label' => 'Image', 'name' => 'image', 'value' => ''],
+
+      ['type' => 'text', 'class' => '', 'label' => ' Weather', 'name' => 'weather', 'value' => ''],
+      ['type' => 'text', 'class' => '', 'label' => ' Population', 'name' => 'population', 'value' => ''],
+      ['type' => 'text', 'class' => '', 'label' => ' Mayor', 'name' => 'mayor', 'value' => ''],
+      ['type' => 'text', 'class' => '', 'label' => ' Municipality', 'name' => 'municipality', 'value' => ''],
+
       ['type' => 'select', 'options' => ['Active' => 'Active', 'Inactive' => 'Inactive'], 'class' => 'validate_field', 'label' => 'Status', 'name' => 'status', 'value' => ''],
 
 

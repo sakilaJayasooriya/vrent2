@@ -6,7 +6,10 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddDescriptionToStartingCitiesTable' => $baseDir . '/database/migrations/2020_07_28_120432_add_description_to_starting_cities_table.php',
     'AddFeaturedToPropertiesTable' => $baseDir . '/database/migrations/2020_07_20_162814_add_featured_to_properties_table.php',
+    'AddImageToPropertyTypeTable' => $baseDir . '/database/migrations/2020_07_30_171210_add_image_to_property_type_table.php',
+    'AddNewColmnsToStartingCitiesTable' => $baseDir . '/database/migrations/2020_07_30_152919_add_new_colmns_to_starting_cities_table.php',
     'AmenitiesTableSeeder' => $baseDir . '/database/seeds/AmenitiesTableSeeder.php',
     'AmenityTypeTableSeeder' => $baseDir . '/database/seeds/AmenityTypeTableSeeder.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',

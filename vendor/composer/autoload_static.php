@@ -478,7 +478,10 @@ class ComposerStaticInitfb00c5b94a6bfe8c61b73a050e7c0b30
     );
 
     public static $classMap = array (
+        'AddDescriptionToStartingCitiesTable' => __DIR__ . '/../..' . '/database/migrations/2020_07_28_120432_add_description_to_starting_cities_table.php',
         'AddFeaturedToPropertiesTable' => __DIR__ . '/../..' . '/database/migrations/2020_07_20_162814_add_featured_to_properties_table.php',
+        'AddImageToPropertyTypeTable' => __DIR__ . '/../..' . '/database/migrations/2020_07_30_171210_add_image_to_property_type_table.php',
+        'AddNewColmnsToStartingCitiesTable' => __DIR__ . '/../..' . '/database/migrations/2020_07_30_152919_add_new_colmns_to_starting_cities_table.php',
         'AmenitiesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AmenitiesTableSeeder.php',
         'AmenityTypeTableSeeder' => __DIR__ . '/../..' . '/database/seeds/AmenityTypeTableSeeder.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',

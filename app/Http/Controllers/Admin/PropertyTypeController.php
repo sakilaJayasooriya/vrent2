@@ -47,12 +47,14 @@ class PropertyTypeController extends Controller
         } elseif ($_POST) {
             $rules = array(
                     'name'           => 'required|max:100',
+                    'image'   => 'required',
                     'description'    => 'required|max:255',
                     'status'         => 'required'
                     );
 
             $fieldNames = array(
                         'name'              => 'Name',
+                        'image'   => 'Image',
                         'description'       => 'Description',
                         'status'            => 'Status'
                         );
@@ -63,8 +65,19 @@ class PropertyTypeController extends Controller
             if ($validator->fails()) {
                 return back()->withErrors($validator)->withInput();
             } else {
+                $image     =   $request->file('image');
+                $extension =   $image->getClientOriginalExtension();
+                $filename  =   'property_type_'.time() . '.' . $extension;
+
+                $success = $image->move('public/front/images/property_type', $filename);
+        
+                if (! $success) {
+                    return back()->withError('Could not upload Image');
+                }
+
                 $propertyType                = new PropertyType;
                 $propertyType->name          = $request->name;
+                $propertyType->image         = $filename;
                 $propertyType->description   = $request->description;
                 $propertyType->status        = $request->status;
                 $propertyType->save();
@@ -104,6 +117,23 @@ class PropertyTypeController extends Controller
                 $propertyType->name          = $request->name;
                 $propertyType->description   = $request->description;
                 $propertyType->status        = $request->status;
+
+                $image     =   $request->file('image');
+
+                if ($image) {
+                    $extension =   $image->getClientOriginalExtension();
+                    $filename  =   'property_type_'.time() . '.' . $extension;
+    
+                    $success   = $image->move('public/front/images/property_type', $filename);
+        
+                    if (! $success) {
+                         return back()->withError('Could not upload Image');
+                    }
+
+                    $propertyType->image = $filename;
+                }
+
+
                 $propertyType->save();
 
 

@@ -63,6 +63,12 @@ class StartingCitiesController extends Controller
                 $starting_cities->name  = $request->name;
                 $starting_cities->image = $filename;
                 $starting_cities->status=$request->status;
+                $starting_cities->description_city=$request->c_description;
+
+                $starting_cities->weather=$request->weather;
+                $starting_cities->population=$request->population;
+                $starting_cities->mayor=$request->mayor;
+                $starting_cities->municipality=$request->municipality;
                
 
                 $starting_cities->save();
@@ -102,7 +108,11 @@ class StartingCitiesController extends Controller
 
                 $starting_cities->name  = $request->name;
                 $starting_cities->status=$request->status;
-
+                $starting_cities->description_city=$request->c_description;
+                $starting_cities->weather=$request->weather;
+                $starting_cities->population=$request->population;
+                $starting_cities->mayor=$request->mayor;
+                $starting_cities->municipality=$request->municipality;
 
                 $image     =   $request->file('image');
 

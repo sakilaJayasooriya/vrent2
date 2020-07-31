@@ -24,9 +24,14 @@ class PropertyType extends Model
 {
     protected $table   = 'property_type';
     public $timestamps = false;
+    public $appends    = ['image_url'];
 
     public function properties()
     {
         return $this->hasMany('App\Models\Properties', 'property_type', 'id');
+    }
+    public function getImageUrlAttribute()
+    {
+        return url('/').'/public/front/images/property_type/'.$this->attributes['image'];
     }
 }

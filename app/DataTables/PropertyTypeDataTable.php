@@ -11,6 +11,9 @@ class PropertyTypeDataTable extends DataTable
     {
         return $this->datatables
             ->eloquent($this->query())
+            ->addColumn('image', function ($propertyType) {
+                return '<img src="' . $propertyType->image_url . '" width="200" height="100">';
+            })
             ->addColumn('action', function ($propertyType) {
 
                 $edit = '<a href="' . url('admin/settings/edit-property-type/' . $propertyType->id) . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i></a>&nbsp;';
@@ -30,6 +33,9 @@ class PropertyTypeDataTable extends DataTable
     public function html()
     {
         return $this->builder()
+        ->columns([
+            'image',
+        ])
             ->addColumn(['data' => 'name', 'name' => 'property_type.name', 'title' => 'Name'])
             ->addColumn(['data' => 'description', 'name' => 'property_type.description', 'title' => 'Description'])
             ->addColumn(['data' => 'status', 'name' => 'property_type.status', 'title' => 'Status'])
