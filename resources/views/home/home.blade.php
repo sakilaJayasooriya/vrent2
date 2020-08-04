@@ -225,8 +225,63 @@
         <!-- end bnner row -->
       </div>
       <!-- end container -->
-      <!--end property type slider -->
-     
+    <!--end property type slider -->
+
+
+     <!--start top destionation slider -->
+    <div class="container-fluid pt-1 pb-4">
+      <div class="row margin-top40" >
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h2 class="mrg-left-15 pb-5">Top Destinations</h2>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="carousel slide multi-item-carousel multi-four-in-row-carousel" id="cityCarousel">
+            <div class="carousel-inner">
+              @php $tdcount = 0 @endphp
+              @foreach($top_destinations as $td)
+                @if ($tdcount==0)
+                  <div class="item active">
+                    @php $tdcount = 1 @endphp
+                @else
+                  <div class="item"> 
+                @endif
+                    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 p-3">
+                      <div class="ex-image-container" style="background-image:url({{ @$td->image_url }});">
+                        
+                          <div class="ex-container">
+                            <div class="ex-center-content">
+                                <div class="h5">
+                                  <strong>
+                                    {{$td->title}}
+                                  </strong>
+                                </div>
+                                <p><small>{{$td->descripion}}</small></p>
+                                
+                            </div>
+                          </div>
+                        
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- end items -->
+              @endforeach
+            </div>
+            <!-- end inner -->
+            <a class="left carousel-control" href="#cityCarousel" data-slide="prev"><span class="sr-only">Previous</span></a>
+            <a class="right carousel-control" href="#cityCarousel" data-slide="next"><span class="sr-only">Next</span></a>
+          
+          </div>
+          <!-- end carousel -->
+        </div>
+        <!-- end col-12 -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+    <!--end top destionation slider -->
+
+
     <!--start featured propertys -->
     <div class="container-fluid">
       <div class="row margin-top40 mrg-left-2 mrg-right-2" >

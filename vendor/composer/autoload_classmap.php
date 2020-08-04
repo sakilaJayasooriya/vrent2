@@ -62,6 +62,7 @@ return array(
     'CreateStartingCitiesTable' => $baseDir . '/database/migrations/2017_05_04_114238_create_starting_cities_table.php',
     'CreateTableUserVerification' => $baseDir . '/database/migrations/2017_06_18_080440_create_table_user_verification.php',
     'CreateTimezoneTable' => $baseDir . '/database/migrations/2015_10_05_153204_create_timezone_table.php',
+    'CreateTopDestinationsTable' => $baseDir . '/database/migrations/2020_08_01_181106_create_top_destinations_table.php',
     'CreateUserDetailsTable' => $baseDir . '/database/migrations/2017_03_01_130507_create_user_details_table.php',
     'CreateUsersTable' => $baseDir . '/database/migrations/2014_10_12_000000_create_users_table.php',
     'CurrencyTableSeeder' => $baseDir . '/database/seeds/CurrencyTableSeeder.php',

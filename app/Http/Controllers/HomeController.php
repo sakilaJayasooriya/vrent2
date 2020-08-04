@@ -20,6 +20,7 @@ use App\Models\Banners;
 use App\Models\language;
 use App\Models\Admin;
 use App\Models\Properties;
+use App\Models\TopDestination;
 use Twilio\Rest\Client;
 
 require base_path() . '/vendor/autoload.php';
@@ -36,6 +37,7 @@ class HomeController extends Controller
     public function index()
     {
         $data['starting_cities']     = StartingCities::where('status', 'Active')->get();
+        $data['top_destinations']     = TopDestination::where('status', 'Active')->get();
         $data['propertyType']     = PropertyType::where('status', 'Active')->get();
         $data['city_count']          = StartingCities::where('status', 'Active')->get()->count();
         $data['banners']             = Banners::where('status', 'Active')->get();

@@ -31,6 +31,11 @@
                 <a href="{{ url('admin/settings/starting-cities') }}" data-group="home_cities">Starting Cities</a>
             </li>
           @endif
+          @if(Helpers::has_permission(Auth::guard('admin')->user()->id, 'starting_cities_settings'))
+            <li class="{{ (Route::current()->uri() == 'admin/settings/top-destinations') || (Route::current()->uri() == 'admin/settings/add-top-destinations') || (Route::current()->uri() == 'admin/settings/edit-top-destinations/{id}') ? 'active' : ''  }}">
+                <a href="{{ url('admin/settings/top-destinations') }}" data-group="home_cities">Top Destinations</a>
+            </li>
+          @endif
 
           @if(Helpers::has_permission(Auth::guard('admin')->user()->id, 'manage_property_type'))
             <li class="{{ (Route::current()->uri() == 'admin/settings/property-type' || Route::current()->uri() == 'admin/settings/add-property-type' || Route::current()->uri() == 'admin/settings/edit-property-type/{id}') ? 'active' : ''  }}">

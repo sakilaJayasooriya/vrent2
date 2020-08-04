@@ -188,6 +188,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['guest:admin']], function(){
 		    Route::match(array('GET', 'POST'), 'settings/edit-starting-cities/{id}', 'Admin\StartingCitiesController@update');
 			Route::get('settings/delete-starting-cities/{id}', 'Admin\StartingCitiesController@delete');
 		});
+		//added newly controler and model called top destination
+		Route::group(['middleware' => 'permission:starting_cities_settings'], function () {
+			Route::get('settings/top-destinations', 'Admin\TopDestinationController@index');
+			Route::match(array('GET', 'POST'), 'settings/add-top-destinations', 'Admin\TopDestinationController@add');
+		    Route::match(array('GET', 'POST'), 'settings/edit-top-destinations/{id}', 'Admin\TopDestinationController@update');
+			Route::get('settings/delete-top-destinations/{id}', 'Admin\TopDestinationController@delete');
+		});
 
 		Route::group(['middleware' => 'permission:manage_property_type'], function () {
 			Route::get('settings/property-type', 'Admin\PropertyTypeController@index');

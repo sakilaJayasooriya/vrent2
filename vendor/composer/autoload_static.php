@@ -534,6 +534,7 @@ class ComposerStaticInitfb00c5b94a6bfe8c61b73a050e7c0b30
         'CreateStartingCitiesTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_04_114238_create_starting_cities_table.php',
         'CreateTableUserVerification' => __DIR__ . '/../..' . '/database/migrations/2017_06_18_080440_create_table_user_verification.php',
         'CreateTimezoneTable' => __DIR__ . '/../..' . '/database/migrations/2015_10_05_153204_create_timezone_table.php',
+        'CreateTopDestinationsTable' => __DIR__ . '/../..' . '/database/migrations/2020_08_01_181106_create_top_destinations_table.php',
         'CreateUserDetailsTable' => __DIR__ . '/../..' . '/database/migrations/2017_03_01_130507_create_user_details_table.php',
         'CreateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_000000_create_users_table.php',
         'CurrencyTableSeeder' => __DIR__ . '/../..' . '/database/seeds/CurrencyTableSeeder.php',
