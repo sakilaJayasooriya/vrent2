@@ -112,7 +112,7 @@
     </div>
     <!--start starting city slider -->
     <div class="container-fluid pt-1 pb-4">
-        <div class="row margin-top40" >
+        <div class="row" >
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
             <div class="carousel slide multi-item-carousel multi-three-in-row-carousel" id="cityCarousel">
               <div class="carousel-inner">
@@ -197,7 +197,7 @@
                       <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-3">
                         <img class="property-img" src="{{ url('public/front/images/property_type/'.$property->image) }}" alt="{{$property->name}}">
                         <p class="pt-3 pb-0 text-center" style="margin-bottom: 0px;padding-top:10px;">
-                        <b><a target="_blank" href="{{ url('propertyType/'.$property->id) }}">{{$property->name}}</a></b>
+                        <b><a target="_blank" href="{{ url('search?property_type='.$property->id) }}">{{$property->name}}</a></b>
                         </p>
                       </div>
   

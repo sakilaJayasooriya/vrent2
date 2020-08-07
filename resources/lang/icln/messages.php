@@ -808,7 +808,23 @@ return [
 
     'static_pages' =>[
           'hosting' => 'hýsingu',
-          'company'  => 'fyrirtæki'
+          'company'  => 'fyrirtæki',
+          'about'=>'um',
+          'how_iclbooking_works'=>'hvernig iclbooking virkar',
+          'terms_conditions'=>'skilmálum',
+          'community'=>'samfélag',
+          'iclbooking_network'=>'iclbooking net',
+          'invite_friends'=>'bjóða vinum',
+          'careers'=>'starfsferill',
+          'host'=>'gestgjafi',
+          'host_your_home'=>'hýsið heimili ykkar',
+          'host_an_online_experience'=>'hýsa upplifun á netinu',
+          'responsible_hosting'=>'ábyrg hýsing',
+          'support'=>'stuðning',
+          'updates_for_covid_19'=>'uppfærslur fyrir covid-19',
+          'help_center'=>'hjálparmiðstöð',
+          'cancellation_options'=>'afpöntunarvalkostir',
+          'neighborhood_support'=>'stuðning hverfisins'
     ],
 
     

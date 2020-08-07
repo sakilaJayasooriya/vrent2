@@ -816,7 +816,25 @@ return [
    
     'static_pages' =>[
           'hosting' => 'Hosting',
-          'company'  => 'Company'
+          'company'  => 'Company',
+          'about'=>'ABOUT',
+          'how_iclbooking_works'=>'How iclbooking works',
+          'terms_conditions'=>'Terms & Conditions',
+          'community'=>'COMMUNITY',
+          'iclbooking_network'=>'Iclbooking network',
+          'invite_friends'=>'Invite friends',
+          'careers'=>'Careers',
+          'host'=>'HOST',
+          'host_your_home'=>'Host your home',
+          'host_an_online_experience'=>'Host an online experience',
+          'responsible_hosting'=>'Responsible hosting',
+          'support'=>'SUPPORT',
+          'updates_for_covid_19'=>'Updates for covid-19',
+          'help_center'=>'Help center',
+          'cancellation_options'=>'Cancellation options',
+          'neighborhood_support'=>'Neighborhood support'
+
+
     ],
 
     'reviews' =>[
