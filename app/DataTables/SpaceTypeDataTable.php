@@ -30,6 +30,7 @@ class SpaceTypeDataTable extends DataTable
     public function html()
     {
         return $this->builder()
+            ->addColumn(['data' => 'id', 'name' => 'space_type.id', 'title' => 'ID'])
             ->addColumn(['data' => 'name', 'name' => 'space_type.name', 'title' => 'Name'])
             ->addColumn(['data' => 'description', 'name' => 'space_type.description', 'title' => 'Description'])
             ->addColumn(['data' => 'status', 'name' => 'space_type.status', 'title' => 'Status'])
@@ -37,7 +38,7 @@ class SpaceTypeDataTable extends DataTable
             ->parameters([
                 'dom' => 'lBfrtip',
                 'buttons' => [],
-                'order' => [0, 'desc'],
+                'order' => [0, 'asc'],
                 'pageLength' => \Session::get('row_per_page'),
             ]);
     }

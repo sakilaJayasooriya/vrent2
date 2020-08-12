@@ -337,6 +337,12 @@
                 var marker = new google.maps.Marker({
                     position: new google.maps.LatLng(feature.latitude, feature.longitude),
                     icon: feature.icon !== undefined ? feature.icon : undefined,
+                    label: {
+                    text: feature.price_map,
+                    color: 'white',
+                    fontSize: '13px',
+                    fontWeight: 'bold'
+                    },
                     map: map,
                     title: feature.title !== undefined? feature.title : undefined,
                     content: feature.content !== undefined? feature.content : undefined,
@@ -479,10 +485,17 @@
                         var room_div   = "";
                         for (var key in properties) {
                             if (properties.hasOwnProperty(key)) {
+                                var moneySymbol_map = properties[key].property_price.currency.symbol;
+                                var moneySymPlainText = $("<span></span>").html(moneySymbol_map).text();
+                                
+                                var price_map      = properties[key].property_price.price;
+                                var symbolWithPrice_map = moneySymPlainText+''+price_map;
+
                                 room_point[key] = {
                                     latitude: properties[key].property_address.latitude,
                                     longitude: properties[key].property_address.longitude,
                                     title: properties[key].name,
+                                    price_map:symbolWithPrice_map,
                                     //content: '<h5>'+properties[key].name+'</h5>'+'<p>'+properties[key].summary+'</p>'
                                     content: '<a href="'+APP_URL+'/properties/'+properties[key].id+'?checkin='+checkin+'&checkout='+checkout+'&guests='+guest+'" class="media-cover">'
                                     +'<img style="max-height:150px;max-width:200px;" src="'+properties[key].cover_photo+'"alt="">'
