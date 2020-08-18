@@ -468,47 +468,22 @@
           </div>
         </div>
         <hr>
-        <!--sakila code-->
-        <div class="container">
-          <div class="modal fade and carousel slide" id="lightbox" style="padding-right:0px !importent;">
-            <div class="modal-dialog" style="width: 80%;overflow: hidden">
-              <div class="modal-content" style="height: 100%;">
-                <!-- Button to close the modal -->
-                <div style="right: 10px;"><button type="button" class="close" data-dismiss="modal">&times;</button></div>
-
-                <div class="modal-body" style="height: 100%;">
-                  <ol class="carousel-indicators">
-                    <li data-target="#lightbox" data-slide-to="0" class="active"></li>
-                    <li data-target="#lightbox" data-slide-to="1"></li>
-                    <li data-target="#lightbox" data-slide-to="2"></li>
-                  </ol>
-                  <div class="carousel-inner" style="width:100%;height:100%;padding:10px;overflow:hidden">
-                    
-                    @php $i = 0 @endphp
-                    @foreach($property_photos as $row_photos)
-                      @if ($i==0)
-                        <div class="item active" style="height: 100%;">
-                          <img style="width:100%;height: 100%;" class=" " src="{{url('public/images/property/'.$property_id.'/'.$row_photos->photo)}}" alt="slide">
-                        </div>
-                      @else
-                        <div class="item" style="height: 100%;">
-                          <img style="width:100%;height: 100%;" class=" " src="{{url('public/images/property/'.$property_id.'/'.$row_photos->photo)}}" alt="slide">
-                        </div>
-                      @endif
-                      @php $i = $i+1 @endphp
-                    @endforeach
-                  </div><!-- /.carousel-inner -->
-                  <a class="left carousel-control" href="#lightbox" role="button" data-slide="prev"></a>
-                  <a class="right carousel-control" href="#lightbox" role="button" data-slide="next"></a>
-                  
-                </div><!-- /.modal-body -->
-              </div><!-- /.modal-content -->
-            </div><!-- /.modal-dialog -->
-          </div><!-- /.modal -->
-        
-        </div><!-- /.container -->
-        <!--end sakila code -->
-
+        <!--popup slider-->
+        <div style="display:none;">
+          <div id="ninja-slider">
+            <div class="slider-inner">
+              <ul>
+                @foreach($property_photos as $row_photos)
+                  <li>
+                      <a class="ns-img" href="{{url('public/images/property/'.$property_id.'/'.$row_photos->photo)}}"></a>
+                     
+                  </li>
+                @endforeach
+              </ul>
+              <div id="fsBtn" class="fs-icon" title="Expand/Close"></div>
+            </div>
+          </div>
+        </div>
         <!--popup slider end-->
         @if(count($property_photos) > 0)
         <div class="row">
@@ -518,15 +493,11 @@
               @foreach($property_photos as $row_photos)
                 @if($i == 0)
                 <div class="col-md-12 col-sm-12" style="margin-bottom:10px;">
-                  <a href="#lightbox" data-toggle="modal" data-slide-to="{{$i}}">
-                    <img style="height:400px; width:100%; background-size: cover; background-position: 50% 50%;" src="{{url('public/images/property/'.$property_id.'/'.$row_photos->photo)}}" style="height:100px;" />
-                  </a>
+                  <img style="height:400px; width:100%; background-size: cover; background-position: 50% 50%;" src="{{url('public/images/property/'.$property_id.'/'.$row_photos->photo)}}" style="height:100px;" onclick="lightbox({{$i}})" />
                 </div>
                 @elseif($i < 4)
                 <div class="col-md-3 col-sm-3">
-                  <a href="#lightbox" data-toggle="modal" data-slide-to="{{$i}}">
-                    <img src="{{url('public/images/property/'.$property_id.'/'.$row_photos->photo)}}" style="width:100%;height:130px;" />
-                  </a>
+                  <img src="{{url('public/images/property/'.$property_id.'/'.$row_photos->photo)}}" style="width:100%;height:130px;" onclick="lightbox({{$i}})" />
                 </div>
                 @else
                   @php break; @endphp
@@ -534,10 +505,8 @@
                   @php $i++ @endphp
               @endforeach
               <div class="col-md-3 col-sm-3">
-                <a href="#lightbox" data-toggle="modal" data-slide-to="0">
-                  <h3 style="text-align: center;padding-top: 40px; margin-top:0px; color:white; height:130px; width:100%; background-color: #8E8F90;">View All</h3>
-                </a>
-                </div>
+                  <h3 onclick="lightbox(0)" style="text-align: center;padding-top: 40px; margin-top:0px; color:white; height:130px; width:100%; background-color: #8E8F90;">View All</h3>
+              </div>
             </div>
           </div>
         </div>
@@ -724,17 +693,12 @@
         <div class="col-md-3 text-center">
             <div class="media-photo-badge text-center">
                <a href="{{ url('users/show/'.$result->host_id) }}" ><img alt="{{ $result->users->first_name }}" class="" src="{{ $result->users->profile_src }}" title="{{ $result->users->first_name }}"></a>
-                
-              </div>
+            </div>
         </div>
         <div class="col-md-9">
           <div class="row">
             <div class="col-md-6">
                 Member since {{ date('F Y', strtotime($result->users->created_at))  }}
-                <p>
-                  {{ $result->users->email}} <br>
-                  {{ $result->users->formatted_phone}}
-                </p>
             
             </div>  
           </div> 
@@ -1043,45 +1007,6 @@
 .shareButton:hover {
   background-color: #3b5998;
   color: white;
-}
-.modal.and.carousel {
-  position: fixed;
-  z-index: 2147481963;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
-  width: 100%;
-  text-align: center;
-  overflow-y: auto;
-
-  background: #191919;
-  background-position-x: initial;
-  background-position-y: initial;
-  background-size: initial;
-  background-origin: initial;
-  background-clip: initial;
-  background-color: rgb(25, 25, 25,0.97);
-}
-.modal-dialog {
-    height: 50%;
-    margin: 30px auto;
-}
-@media (min-width: 768px){
-  .modal-dialog {
-      height: 80%;
-      margin: 30px auto;
-  }
-}
-.close{
-  position: fixed;
-  float: right;
-  font-size: 40px;
-  font-weight: 900;
-  text-shadow: 0 1px 0 #fff;
-  opacity: .5;
-  z-index: 600000;
-  right: inherit;
 }
 </style>
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
