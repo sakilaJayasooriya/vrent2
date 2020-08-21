@@ -4,8 +4,9 @@ return [
 	
 	'header' => [
         'inbox'                   => 'Inbox',
-		    'signin'                   => 'Sign In',
-        'join'                     => 'Join',
+        'signin'                  => 'Sign In',
+        'listing-message'         => 'Property Messages',
+        'join'                    => 'Join',
         'feeds'             	     => 'Feeds' ,
         'explore'      			       => 'Explore',
         'upload'                   => 'Upload',

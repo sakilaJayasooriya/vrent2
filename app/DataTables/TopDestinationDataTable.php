@@ -25,8 +25,8 @@ class TopDestinationDataTable extends DataTable
                 return '<a target="_blank" href="' . url('admin/settings/edit-top-destinations/' . $topDestinations->id) . '">' . $topDestinations->title . '</a>';
             })
             ->addColumn('description', function ($topDestinations) {
-                if($topDestinations->description!=null){
-                    $des='<p>' .substr($topDestinations->description,0,20). '.......</p>';
+                if($topDestinations->descripion!=null){
+                    $des='<p>' .substr($topDestinations->descripion,0,20). '.......</p>';
                 }
                 else{
                     $des='<p>Empty</p>';
@@ -54,7 +54,7 @@ class TopDestinationDataTable extends DataTable
             'image',
         ])
         ->addColumn(['data' => 'action', 'name' => 'action', 'title' => 'Action', 'orderable' => false, 'searchable' => false])
-        ->addColumn(['data' => 'descripion', 'name' => 'properties.descripion', 'title' => 'Description'])
+        ->addColumn(['data' => 'description', 'name' => 'properties.description', 'title' => 'Description'])
         ->parameters([
             'dom' => 'lBfrtip',
             'buttons' => [],

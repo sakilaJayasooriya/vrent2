@@ -31,6 +31,7 @@ return array(
     'CreateCurrencyTable' => $baseDir . '/database/migrations/2017_02_08_045745_create_currency_table.php',
     'CreateEmailTemplatesTable' => $baseDir . '/database/migrations/2019_02_02_111427_create_email_templates_table.php',
     'CreateLanguageTable' => $baseDir . '/database/migrations/2017_02_08_045643_create_language_table.php',
+    'CreateListingMsgTable' => $baseDir . '/database/migrations/2020_08_18_104541_create_listing_msg_table.php',
     'CreateMessageTypeTable' => $baseDir . '/database/migrations/2017_05_07_133954_create_message_type_table.php',
     'CreateMessagesTable' => $baseDir . '/database/migrations/2017_05_04_114131_create_messages_table.php',
     'CreateNotificationTable' => $baseDir . '/database/migrations/2017_04_02_110016_create_notification_table.php',

@@ -61,6 +61,7 @@
                 <ul class="dropdown-menu">
                 <li><a href="{{ url('dashboard') }}">{{trans('messages.header.dashboard')}}</a></li>
                 <li><a href="{{ url('inbox') }}">{{trans('messages.header.inbox')}}</a></li>
+                <li><a href="{{ url('listing-message') }}">{{trans('messages.header.listing-message')}}</a></li>
                 <li><a href="{{ url('properties') }}">{{trans('messages.header.your_listing')}}</a></li>
                 <li><a href="{{ url('my-bookings') }}">{{trans('messages.header.property_booking')}}</a></li>
                 <li><a href="{{ url('trips/active') }}">{{trans('messages.header.your_trip')}}</a></li>
@@ -144,6 +145,7 @@
             <ul class="dropdown-menu">
             <li><a href="{{ url('dashboard') }}">{{trans('messages.header.dashboard')}}</a></li>
             <li><a href="{{ url('inbox') }}">{{trans('messages.header.inbox')}}</a></li>
+            <li><a href="{{ url('listing-message') }}">{{trans('messages.header.listing-message')}}</a></li>
             <li><a href="{{ url('properties') }}">{{trans('messages.header.your_listing')}}</a></li>
             <li><a href="{{ url('my-bookings') }}">{{trans('messages.header.property_booking')}}</a></li>
             <li><a href="{{ url('trips/active') }}">{{trans('messages.header.your_trip')}}</a></li>

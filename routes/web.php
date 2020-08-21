@@ -195,6 +195,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['guest:admin']], function(){
 		    Route::match(array('GET', 'POST'), 'settings/edit-top-destinations/{id}', 'Admin\TopDestinationController@update');
 			Route::get('settings/delete-top-destinations/{id}', 'Admin\TopDestinationController@delete');
 		});
+		//added newly controler and model called ListingMsg for admin
+		Route::group(['middleware' => 'permission:starting_cities_settings'], function () {
+			Route::get('listing-message', 'Admin\ListingMsgController@index');
+			Route::get('listing-message/{id}', 'Admin\ListingMsgController@delete');
+		});
 
 		Route::group(['middleware' => 'permission:manage_property_type'], function () {
 			Route::get('settings/property-type', 'Admin\PropertyTypeController@index');
@@ -394,7 +399,13 @@ Route::group(['middleware' => ['guest:users', 'locale']], function () {
     Route::get('messaging/guest/{id}', 'InboxController@guestMessage')->middleware(['checkUserRoutesPermissions']);
     Route::post('inbox/reply/{id}', 'InboxController@reply');
     Route::post('inbox/message_count', 'InboxController@messageCount');
-    Route::post('inbox/message_with_type', 'InboxController@messageWithType');
+	Route::post('inbox/message_with_type', 'InboxController@messageWithType');
+	
+	//user listning msg read,send fucntion
+	Route::get('listing-message', 'ListingMsgController@index');
+	Route::get('listing-message/{id}', 'ListingMsgController@delete');
+	Route::post('listing-message/sendmail', 'ListingMsgController@sendmail');
+	Route::post('listing-message/create', 'ListingMsgController@create');
 
     Route::match(['get', 'post'], 'users/account-preferences', 'UserController@accountPreferences');
     Route::get('users/account_delete/{id}', 'UserController@accountDelete');

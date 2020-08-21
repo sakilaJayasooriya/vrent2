@@ -46,6 +46,9 @@
         @if(Helpers::has_permission(Auth::guard('admin')->user()->id, 'manage_reviews'))
           <li class="{{ (Route::current()->uri() == 'admin/reviews') || (Route::current()->uri() == 'admin/edit_review/{id}') ? 'active' : ''  }}"><a href="{{ url('admin/reviews') }}"><i class="fa fa-eye"></i><span>Manage Reviews</span></a></li>
         @endif
+        @if(Helpers::has_permission(Auth::guard('admin')->user()->id, 'manage_messages'))
+          <li class="{{ (Route::current()->uri() == 'admin/listing-message') ? 'active' : ''  }}"><a href="{{ url('admin/listing-message') }}"><i class="fa fa-user"></i><span>Listing messages</span></a></li>
+        @endif
         @if(Helpers::has_permission(Auth::guard('admin')->user()->id, 'manage_admin'))
           <li class="{{ (Route::current()->uri() == 'admin/admin-users') || (Route::current()->uri() == 'admin/add-admin') || (Route::current()->uri() == 'admin/edit-admin/{id}') ? 'active' : ''  }}">
             <a href="{{ url('admin/admin-users') }}">

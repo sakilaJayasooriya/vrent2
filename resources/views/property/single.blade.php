@@ -722,20 +722,34 @@
     <div class="h4 margin-top40"><strong>{{trans('messages.property_single.about_host')}}, {{ $result->users->first_name }}</strong></div> 
       <div class="row margin-top20">
         <div class="col-md-3 text-center">
-            <div class="media-photo-badge text-center">
+            <div class="media-photo-badge text-left">
                <a href="{{ url('users/show/'.$result->host_id) }}" ><img alt="{{ $result->users->first_name }}" class="" src="{{ $result->users->profile_src }}" title="{{ $result->users->first_name }}"></a>
                 
               </div>
         </div>
         <div class="col-md-9">
-          <div class="row">
-            <div class="col-md-6">
-                Member since {{ date('F Y', strtotime($result->users->created_at))  }}
-                <p>
+          <div class="row text-center">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                <p class="text-left">
+                  Member since {{ date('F Y', strtotime($result->users->created_at))  }} <br>
                   {{ $result->users->email}} <br>
                   {{ $result->users->formatted_phone}}
                 </p>
             
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 text-left">
+              @if(Auth::check())
+                <form method="post" action="{{url('listing-message/create')}}" id="listinmsg_form" accept-charset='UTF-8'>
+                  <input type="hidden" value="{{ $result->host_id }}" name="receiver_id" id="receiver_id">
+                  <input type="hidden" value="{{ Auth::user()->id }}" name="sender_id" id="sender_id">
+                  <input type="hidden" value="{{ $result->id }}" name="property_id" id="property_id">
+                  
+                  <textarea class="form-control" name="msg"></textarea><br>
+                  <button class="btn btn-success" type="submit">Send</button>
+                </form>
+              @else
+
+              @endif
             </div>  
           </div> 
         </div>

@@ -5,6 +5,7 @@ return [
   'header' => [
         'inbox'                    =>'pósthólfið',
         'signin'                   => 'skráðu þig inn',
+        'listing-message'         => 'skráningu pósthólfið',
         'join'                     => 'taka þátt',
         'feeds'                    => 'straumar' ,
         'explore'                  => 'kanna',
