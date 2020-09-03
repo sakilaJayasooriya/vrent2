@@ -58,7 +58,6 @@ class HomeController extends Controller
             }
             Session::put($prefer);
         }
-        //dd($data['propertyType']);
         return view('home.home', $data);
     }
     

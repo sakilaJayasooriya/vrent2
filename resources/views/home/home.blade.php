@@ -25,30 +25,30 @@
     </div>
     <div class="mg-bn-forms-up">
       <div class="mg-book-now2 mg-book-now">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
             <div class="col-md-12">
               <div class="mg-bn-forms">
                 <form id="front-search-form" method="post" action="{{url('search')}}">
                   <div class="row">
-                    <div class="col-sm-6 col-md-4 col-xs-12 input-mb" style="width: 17.8333333%;">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2 input-mb" style="">
                       <div class="input-group date mg-check-in col-xs-12">
                         <input class="form-control" id="front-search-field" placeholder="{{trans('messages.home.where_want_to_go')}}" autocomplete="off" name="location" type="text" required>
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-2 col-xs-12 input-mb" style="width: 14.6666666%;">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-1 input-mb" style="">
                       <div class="input-group date mg-check-in">
                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                         <input class="form-control" name="checkin" id="front-search-checkin" placeholder="{{trans('messages.search.check_in')}}" autocomplete="off" type="text" readonly="readonly" required>
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-2 col-xs-12 input-mb" style="width: 14.6666666%;">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-1 input-mb" style="">
                       <div class="input-group date mg-check-out">
                         <div class="input-group-addon"><i class="fa fa-calendar"></i></div>
                         <input class="form-control" name="checkout" id="front-search-checkout" placeholder="{{trans('messages.search.check_out')}}" type="text" readonly="readonly" required>
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-2 col-xs-12" style="width: 14.6666666%;">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2" style="">
                       <div class="input-group date mg-check-out col-xs-12">
                         <select id="front-search-adult" class="form-control black-select" name="adult">
                           <option value=""> {{trans('messages.home.adult')}} (Age &gt; 13)</option>
@@ -71,7 +71,7 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-2 col-xs-12" style="width: 14.6666666%;">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2" style="">
                       <div class="input-group date mg-check-out col-xs-12">
                         <select id="front-search-children" class="form-control black-select" name="children">
                           <option value=""> {{trans('messages.home.children')}} (Age 2-12)</option>
@@ -84,7 +84,7 @@
                         </select>
                       </div>
                     </div>
-                    <div class="col-sm-6 col-md-2 col-xs-12" style="width: 14.6666666%;">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2" style="">
                       <div class="input-group date mg-check-out col-xs-12">
                         <select id="front-search-infant" class="form-control black-select" name="infant">
                           <option value=""> {{trans('messages.home.infant')}} (Under 2)</option>
@@ -97,9 +97,19 @@
                         </select>
                       </div>
                     </div>
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-1" style="">
+                      <div class="input-group date mg-check-out col-xs-12">
+                        <select id="front-search-proptype" class="form-control black-select" name="preproptype">
+                          @foreach($propertyType as $property)
+                            <option value="{{ $property->id}}"> {{$property->name}} </option>
+                          @endforeach
+                        </select>
+                      </div>
+                    </div>
 
 
-                    <div class="col-md-1 col-xs-12 front-search">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-1 front-search">
+                      <input type="hidden" id="firstload" value="1">
                       <button type="submit" class="btn btn-main btn-block">{{trans('messages.home.search')}}</button>
                     </div>
                   </div>

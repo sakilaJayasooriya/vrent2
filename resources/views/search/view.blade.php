@@ -25,6 +25,8 @@
                         <input type="hidden" id="location" value="{{ $location }}">
                         <input type="hidden" id="lat" value="{{ $lat }}">
                         <input type="hidden" id="long" value="{{ $long }}">
+                        <input type="hidden" id="prePropType" value="{{ $preproptype }}">
+                        <input type="hidden" id="firstload" value="{{ $firstload }}">
                     
                         <div class="select col-sm-6 mb20">
                             <select id="search-pg-adult" class="form-control" name="birthday_year">
@@ -419,6 +421,17 @@
             var map_details = a + "~" + t + "~" + o + "~" + i + "~" + s + "~" + r + "~" + l + "~" + n;
             var location    = $('#location').val();
 
+            //this variable added to found pre-property type firstload
+            var prePropType    = $('#prePropType').val();
+            var firstload    = $('#firstload').val();
+            if(firstload==1){
+                var property_type = prePropType;
+                
+            }
+            else{
+                var property_type = getCheckedValueArray('property_type');
+            }
+            console.log('property_type'+property_type);
             //Input Search value set
             $('#header-search-form').val(location);
             //Input Search value set
@@ -426,7 +439,7 @@
             var min_price       = range[0];
             var max_price       = range[1];
             var amenities       = getCheckedValueArray('amenities');
-            var property_type   = getCheckedValueArray('property_type');
+            
             var book_type       = getCheckedValueArray('book_type');
             var space_type      = getCheckedValueArray('space_type');
             var beds            = $('#map-search-min-beds').val();
@@ -641,6 +654,7 @@
         });
 
         $('.filter-apply').on('click', function(){
+            $('#firstload').val('0');
             allowRefresh = true;
             $('.room_filter').addClass('display-off');
             $('#more_filters').show();
@@ -662,7 +676,7 @@
             })
                 .get()
                 .join(',');
-
+            //console.log(typeof array_Value);
             return array_Value;
         }
         /*function searchOnZoom(map){

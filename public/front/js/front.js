@@ -308,12 +308,15 @@ $("#front-search-form").submit(function(e) {
         ad = $("#front-search-adult").val(),
         ch = $("#front-search-children").val(),
         inf = $("#front-search-infant").val(),
+        proptype = $("#front-search-proptype").val(),
+        firstload = $("#firstload").val(),
+        
 
         i = "";
     var n = $("#front-search-field").val(),        
         c = n.replace(" ", "+");
-    //window.location.href = APP_URL + "/search?location=" + c + "&checkin=" + t + "&checkout=" + a + "&guest=" + o, e.preventDefault()
-    window.location.href = APP_URL + "/search?location=" + c + "&checkin=" + t + "&checkout=" + a + "&adult=" + ad + "&children=" + ch + "&infant=" + inf , e.preventDefault()
+    //window.location.href = APP_URL + "/search?location=" + c + "&checkin=" + t + "&checkout=" + a + "&guest=" + o, e.preventDefault() 
+    window.location.href = APP_URL + "/search?location=" + c + "&checkin=" + t + "&checkout=" + a + "&adult=" + ad + "&children=" + ch + "&infant=" + inf + "&proptype=" + proptype+ "&firstload=" + firstload, e.preventDefault()
 });
 
 $(function() {

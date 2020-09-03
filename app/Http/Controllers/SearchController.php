@@ -27,6 +27,8 @@ class SearchController extends Controller
     public function index(Request $request)
     {
         //dd($request);
+        $preproptype = $request->input('proptype');
+        $firstload = $request->input('firstload');
         $location = $request->input('location');
         $address  = str_replace(" ", "+", "$location");
         $map_where = 'https://maps.google.com/maps/api/geocode/json?key='.MAP_KEY.'&address='.$address.'&sensor=false';
@@ -44,6 +46,8 @@ class SearchController extends Controller
         $data['location']           = $request->input('location');
         $data['checkin']            = $request->input('checkin');
         $data['checkout']           = $request->input('checkout');
+        $data['preproptype']           = $preproptype;
+        $data['firstload']           = $firstload;
         //$data['guest']              = $request->input('guest');
         
         $data['adult']              = $request->input('adult');
@@ -78,6 +82,7 @@ class SearchController extends Controller
 
         $data['max_price_check'] = $this->helper->convert_currency('', 'USD', $data['max_price']);
         return view('search.view', $data);
+        
     }
 
     function searchResult(Request $request)
