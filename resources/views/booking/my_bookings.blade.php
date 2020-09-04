@@ -29,6 +29,7 @@
             <a href="{{ url('/') }}/property/create" class="btn btn-special list-your-space-btn" id="list-your-space">{{trans('messages.booking_my.add_list')}}</a>
         </div>
       @else
+      
       <div class="panel-header">
         <div class="row row-table">
           <div class="col-md-6 col-middle">
@@ -53,6 +54,7 @@
               <th width="20%">{{trans('messages.booking_my.detail')}}</th>
             </tr>
             @foreach($bookings as $row)
+          
             <tr data-reservation-id="{{ $row->id }}" class="booking">
               <td>
                 <span class="label label-{{ $row->label_color }}">

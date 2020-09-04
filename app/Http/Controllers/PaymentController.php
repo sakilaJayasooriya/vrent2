@@ -127,6 +127,7 @@ class PaymentController extends Controller
     }
     public function createBooking(Request $request)
     {
+        
         $paypal_credentials = Settings::where('type', 'PayPal')->pluck('value', 'name');
         $currencyDefault    = Currency::where('default', 1)->first();
         
@@ -175,7 +176,7 @@ class PaymentController extends Controller
                         ];
 
                 $code = $this->store($data);
-                
+                dd($request);
                 $this->helper->one_time_message('success', trans('messages.success.payment_success'));
                 return redirect('booking/requested?code='.$code);
             } elseif ($response->isRedirect()) {
@@ -246,6 +247,7 @@ class PaymentController extends Controller
         $currencyDefault = Currency::where('default', 1)->first();
         
         if ($_POST) {
+            
             if (isset($request->stripeToken)) {
                 $id            = Session::get('payment_property_id');
                 $result        = Properties::find($id);

@@ -492,6 +492,7 @@ class ComposerStaticInitfb00c5b94a6bfe8c61b73a050e7c0b30
         'Cpdf' => __DIR__ . '/..' . '/dompdf/dompdf/lib/Cpdf.php',
         'CreateAccountsTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_08_044609_create_accounts_table.php',
         'CreateAdminTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_04_102846_create_admin_table.php',
+        'CreateAdsTable' => __DIR__ . '/../..' . '/database/migrations/2020_09_03_063853_create_ads_table.php',
         'CreateAmenitiesTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_04_104010_create_amenities_table.php',
         'CreateAmenityTypeTable' => __DIR__ . '/../..' . '/database/migrations/2017_05_04_104406_create_amenity_type_table.php',
         'CreateBackupTable' => __DIR__ . '/../..' . '/database/migrations/2017_02_23_110333_create_backup_table.php',

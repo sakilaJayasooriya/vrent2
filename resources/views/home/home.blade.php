@@ -173,9 +173,10 @@
             <!-- end carousel -->
           </div>
           <!-- end col-12 -->
-          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style="background-color:aquamarine">
-            <div style="height:600px;background-color:aquamarine">
-                <h2 style="vertical:align:center">Banner</h2>
+          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style=" ">
+            <div style="">
+                <!--Advertisement -->
+                {!! $ad_slidebar !!}
             </div>
           </div>
         </div>
@@ -207,7 +208,7 @@
                       <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 p-3">
                         <img class="property-img" src="{{ url('public/front/images/property_type/'.$property->image) }}" alt="{{$property->name}}">
                         <p class="pt-3 pb-0 text-center" style="margin-bottom: 0px;padding-top:10px;">
-                        <b><a target="_blank" href="{{ url('search?property_type='.$property->id) }}">{{$property->name}}</a></b>
+                        <b>{{$property->name}}</b>
                         </p>
                       </div>
   
@@ -227,8 +228,9 @@
         <!-- start banner row -->
         <div class="row margin-top40" >
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4 mrg-left-5 mrg-right-5">
-              <div style="height:160px;background-color:aquamarine;text-align:centers">
-                  <h2 style="text-align:center">Banner</h2>
+              <div style=" ">
+                 <!--Advertisement -->
+                  {!! $ad_horizontal !!}
               </div>
             </div>
         </div>
@@ -296,8 +298,9 @@
     <div class="container-fluid">
       <div class="row margin-top40 mrg-left-2 mrg-right-2" >
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 pt-4">
-            <div style="height:260px;background-color:aquamarine;text-align:centers">
-                <h2 style="text-align:center">Banner</h2>
+            <div style="">
+              <!--Advertisement -->
+                {!! $ad_slidebar !!}
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pt-4">

@@ -45,7 +45,7 @@ class BookingController extends Controller
         }
 
         $data['result']         = Bookings::find($request->id);
-
+        
         if (! $data['result']) {
             abort('404');
         }
@@ -55,6 +55,7 @@ class BookingController extends Controller
         }
         
         $data['title'] = 'Booking Details';
+        
         return view('booking.detail', $data);
    }
 
@@ -278,6 +279,7 @@ class BookingController extends Controller
         }
 
         $data['print'] = $request->print;
+        //dd($data);
         return view('booking.my_bookings', $data);
     }
 

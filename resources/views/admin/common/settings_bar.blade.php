@@ -8,7 +8,11 @@
                 <a href="{{ url('admin/settings') }}" data-group="profile">General</a>
             </li>
           @endif
-          
+          @if(Permission::has_permission(Auth::guard('admin')->user()->id, 'general_setting'))
+            <li class="{{ (Route::current()->uri() == 'admin/settings/ads') ? 'active' : ''  }}">
+                <a href="{{ url('admin/settings/ads') }}" data-group="profile">Advertisments</a>
+            </li>
+          @endif
           @if(Permission::has_permission(Auth::guard('admin')->user()->id, 'preference'))
             <li class="{{ (Route::current()->uri() == 'admin/settings/preferences') ? 'active' : ''  }}">
                 <a href="{{ url('admin/settings/preferences') }}" data-group="profile">Preferences</a>

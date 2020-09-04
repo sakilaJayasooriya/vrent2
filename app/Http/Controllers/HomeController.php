@@ -21,6 +21,7 @@ use App\Models\language;
 use App\Models\Admin;
 use App\Models\Properties;
 use App\Models\TopDestination;
+use App\Models\Ads;
 use Twilio\Rest\Client;
 
 require base_path() . '/vendor/autoload.php';
@@ -37,6 +38,13 @@ class HomeController extends Controller
     public function index()
     {
         $data['starting_cities']     = StartingCities::where('status', 'Active')->get();
+
+        $ad_slidebar         = Ads::where([['status','=','Active'],['possition','=','Slidebar']])->first();
+        $ad_horizontal      = Ads::where([['status','=','Active'],['possition','=','Horizontal']])->first();
+
+        $data['ad_slidebar']=htmlspecialchars_decode($ad_slidebar->content);
+        $data['ad_horizontal']=htmlspecialchars_decode($ad_horizontal->content);
+
         $data['top_destinations']     = TopDestination::where('status', 'Active')->get();
         $data['propertyType']     = PropertyType::where('status', 'Active')->get();
         $data['city_count']          = StartingCities::where('status', 'Active')->get()->count();
@@ -58,6 +66,7 @@ class HomeController extends Controller
             }
             Session::put($prefer);
         }
+
         return view('home.home', $data);
     }
     

@@ -20,6 +20,7 @@ return array(
     'Cpdf' => $vendorDir . '/dompdf/dompdf/lib/Cpdf.php',
     'CreateAccountsTable' => $baseDir . '/database/migrations/2017_02_08_044609_create_accounts_table.php',
     'CreateAdminTable' => $baseDir . '/database/migrations/2017_05_04_102846_create_admin_table.php',
+    'CreateAdsTable' => $baseDir . '/database/migrations/2020_09_03_063853_create_ads_table.php',
     'CreateAmenitiesTable' => $baseDir . '/database/migrations/2017_05_04_104010_create_amenities_table.php',
     'CreateAmenityTypeTable' => $baseDir . '/database/migrations/2017_05_04_104406_create_amenity_type_table.php',
     'CreateBackupTable' => $baseDir . '/database/migrations/2017_02_23_110333_create_backup_table.php',

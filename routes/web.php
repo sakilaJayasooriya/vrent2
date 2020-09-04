@@ -195,6 +195,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['guest:admin']], function(){
 		    Route::match(array('GET', 'POST'), 'settings/edit-top-destinations/{id}', 'Admin\TopDestinationController@update');
 			Route::get('settings/delete-top-destinations/{id}', 'Admin\TopDestinationController@delete');
 		});
+		//added newly advertisement publish
+		Route::group(['middleware' => 'permission:general_setting'], function () {
+			Route::get('settings/ads', 'Admin\AdsController@index');
+			Route::match(array('GET', 'POST'), 'settings/add-ads', 'Admin\AdsController@add');
+			Route::match(array('GET', 'POST'), 'settings/edit-ads/{id}', 'Admin\AdsController@update');
+			Route::get('settings/delete-ads/{id}', 'Admin\AdsController@delete');
+
+		});
 		//added newly controler and model called ListingMsg for admin
 		Route::group(['middleware' => 'permission:starting_cities_settings'], function () {
 			Route::get('listing-message', 'Admin\ListingMsgController@index');
