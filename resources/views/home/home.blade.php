@@ -176,7 +176,9 @@
           <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style=" ">
             <div style="">
                 <!--Advertisement -->
-                {!! $ad_slidebar !!}
+                @if ($ad_slidebar!=null)
+                  {!! $ad_slidebar !!}
+                @endif
             </div>
           </div>
         </div>
@@ -230,7 +232,9 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4 mrg-left-5 mrg-right-5">
               <div style=" ">
                  <!--Advertisement -->
-                  {!! $ad_horizontal !!}
+                  @if ($ad_horizontal!=null)
+                    {!! $ad_horizontal !!}
+                  @endif
               </div>
             </div>
         </div>
@@ -300,7 +304,9 @@
         <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 pt-4">
             <div style="">
               <!--Advertisement -->
+              @if ($ad_slidebar!=null)
                 {!! $ad_slidebar !!}
+              @endif
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pt-4">

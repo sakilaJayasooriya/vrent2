@@ -42,8 +42,19 @@ class HomeController extends Controller
         $ad_slidebar         = Ads::where([['status','=','Active'],['possition','=','Slidebar']])->first();
         $ad_horizontal      = Ads::where([['status','=','Active'],['possition','=','Horizontal']])->first();
 
-        $data['ad_slidebar']=htmlspecialchars_decode($ad_slidebar->content);
-        $data['ad_horizontal']=htmlspecialchars_decode($ad_horizontal->content);
+        if($ad_slidebar!=null){
+            $data['ad_slidebar']=htmlspecialchars_decode($ad_slidebar->content);
+        }
+        else{
+            $data['ad_slidebar']=null;
+        }
+        if($ad_horizontal!=null){
+            $data['ad_horizontal']=htmlspecialchars_decode($ad_horizontal->content);
+        }
+        else{
+            $data['ad_horizontal']=null;
+        }
+        
 
         $data['top_destinations']     = TopDestination::where('status', 'Active')->get();
         $data['propertyType']     = PropertyType::where('status', 'Active')->get();
@@ -66,7 +77,7 @@ class HomeController extends Controller
             }
             Session::put($prefer);
         }
-
+        //dd($data);
         return view('home.home', $data);
     }
     
