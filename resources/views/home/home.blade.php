@@ -175,7 +175,7 @@
             <!-- end carousel -->
           </div>
           <!-- end col-12 -->
-          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2" style=" ">
+          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 pt-10" style=" ">
             <div style="">
                 <!--Advertisement -->
                 @if ($ad_slidebar!=null)
@@ -303,7 +303,7 @@
     <!--start featured propertys -->
     <div class="container-fluid">
       <div class="row margin-top40 mrg-left-2 mrg-right-2" >
-        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 pt-4">
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 pt-10">
             <div style="">
               <!--Advertisement -->
               @if ($ad_slidebar!=null)
