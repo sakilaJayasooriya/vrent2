@@ -132,7 +132,7 @@
                   @else
                     <div class="item"> 
                   @endif
-                      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 p-3">
+                      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 p-10">
                         <div class="box-shdw">
                           <div class="ex-image-container" style="background-image:url({{ @$starting_cities[$i]->image_url }});">
                             <a href="{{URL::to('/')}}/search?location={{$starting_cities[$i]->name}}&source=ds">
