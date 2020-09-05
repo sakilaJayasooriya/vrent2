@@ -4283,23 +4283,26 @@ div.cs-skin-elastic .cs-options .cs-selected span::after {
 }
 .property-img{
   width: 100%;
-  height: 300px;
-  max-height: 300px;
-  min-height: 300px;
+  height: 200px;
+  max-height: 200px;
+  min-height: 200px;
   overflow: hidden;
 }
 .sliderConten{
-  border-left: 1px solid #2e2e2e;
-  border-right: 1px solid #2e2e2e;
-  border-bottom: 1px solid #2e2e2e;
-  background-color: #eee;
+  
+  background-color:#fff;
   padding: 15px 10px;
   width: 100%;
   min-height: 300px;
   max-height: 300px;
   overflow: hidden;
 }
-
+.box-shdw{
+  box-shadow: 5px 5px 10px #aaaaaa;
+}
+.padding-bt-20{
+  padding-bottom: 20px;
+}
 
 .multi-item-carousel .carousel-inner > .item {
   -webkit-transition: 500ms ease-in-out left;
@@ -4340,8 +4343,20 @@ div.cs-skin-elastic .cs-options .cs-selected span::after {
   padding-right: 0px !important; 
   padding-left: 0px !important; 
 }
+.p-10{
+  padding-top: 10px !important;
+  padding-bottom: 10px !important; 
+  padding-right: 10px !important; 
+  padding-left: 10px !important; 
+}
 .pt-15{
   padding-top: 15px !important;
+}
+.pt-10{
+  padding-top: 10px !important;
+}
+.pb-10{
+  padding-bottom: 10px !important;
 }
 #mega-slider .carousel-inner{
   max-height: 500px;

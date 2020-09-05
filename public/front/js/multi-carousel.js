@@ -2,7 +2,7 @@
 //three item in row slider
 // Instantiate the Bootstrap carousel
 $('.multi-three-in-row-carousel').carousel({
-    interval: false
+    interval: 5000
     });
     // for every slide in carousel, copy the next slide's item in the slide.
     // Do the same for the next, next item.
@@ -27,7 +27,7 @@ $('.multi-three-in-row-carousel .item').each(function(){
 //four item in a row
 // Instantiate the Bootstrap carousel
 $('.multi-four-in-row-carousel').carousel({
-    interval: false
+    interval: 5000
 });
 // for every slide in carousel, copy the next slide's item in the slide.
 // Do the same for the next, next item.

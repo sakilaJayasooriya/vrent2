@@ -124,8 +124,8 @@
     <div class="container-fluid pt-1 pb-4">
         <div class="row" >
           <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10">
-            <div class="carousel slide multi-item-carousel multi-three-in-row-carousel" id="cityCarousel">
-              <div class="carousel-inner">
+            <div class="carousel slide multi-item-carousel multi-three-in-row-carousel" data-ride="carousel" id="cityCarousel">
+              <div class="carousel-inner padding-bt-20" role="listbox">
                 @for($i=0;$i<= $city_count-1;$i++)
                   @if ($i==0)
                     <div class="item active">
@@ -133,31 +133,33 @@
                     <div class="item"> 
                   @endif
                       <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 p-3">
-                        <div class="ex-image-container" style="background-image:url({{ @$starting_cities[$i]->image_url }});">
-                          <a href="{{URL::to('/')}}/search?location={{$starting_cities[$i]->name}}&source=ds">
-                            <div class="ex-container">
-                              <div class="ex-center-content">
-                                  <div class="h2">
-                                    <strong>
-                                      {{$starting_cities[$i]->name}}
-                                    </strong>
-                                  </div>
-                                  
+                        <div class="box-shdw">
+                          <div class="ex-image-container" style="background-image:url({{ @$starting_cities[$i]->image_url }});">
+                            <a href="{{URL::to('/')}}/search?location={{$starting_cities[$i]->name}}&source=ds">
+                              <div class="ex-container">
+                                <div class="ex-center-content">
+                                    <div class="h2">
+                                      <strong>
+                                        {{$starting_cities[$i]->name}}
+                                      </strong>
+                                    </div>
+                                    
+                                </div>
                               </div>
-                            </div>
-                          </a>
-                        </div>
-                        <div class="sliderConten">
-                          <p>{{substr($starting_cities[$i]->description_city,0,110)}}....<br>
-                            <small>
-                            <b>Weather:</b> {{$starting_cities[$i]->weather}}<br>
-                            <b>Population:</b> {{$starting_cities[$i]->population}}<br>
-                            <b>Mayor:</b> {{$starting_cities[$i]->mayor}}<br>
-                            <b>Municipality:</b> {{$starting_cities[$i]->municipality}}
-                            </small>
-                          </p>
-                          <h5><b>Plan a trip</b></h5>
-                          <p><a href="{{URL::to('/')}}/search?location={{$starting_cities[$i]->name}}&source=ds">iclbooking travel guide </a></p>
+                            </a>
+                          </div>
+                          <div class="sliderConten">
+                            <p>{{substr($starting_cities[$i]->description_city,0,110)}}....<br>
+                              <small>
+                              <b>Weather:</b> {{$starting_cities[$i]->weather}}<br>
+                              <b>Population:</b> {{$starting_cities[$i]->population}}<br>
+                              <b>Mayor:</b> {{$starting_cities[$i]->mayor}}<br>
+                              <b>Municipality:</b> {{$starting_cities[$i]->municipality}}
+                              </small>
+                            </p>
+                            <h5><b>Plan a trip</b></h5>
+                            <p><a href="{{URL::to('/')}}/search?location={{$starting_cities[$i]->name}}&source=ds">iclbooking travel guide </a></p>
+                          </div>
                         </div>
                       </div>
   
@@ -309,23 +311,27 @@
               @endif
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pt-4">
+        <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10 pt-4 pb-4">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 pt-4">
               <h4 class="pb-5"><b>For Clean and Comfortable Stay</b></h4><br>
             </div>
             @foreach($featuredProperties as $property)
-              <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pt-5">
-                <img class="property-img" src="{{ url($property->cover_photo) }}" alt="{{$property->name}}">
-                <p class="pt-3 pb-0" style="margin-bottom: 0px;padding-top:10px;">
-                  <b><a target="_blank" href="{{ url('properties/'.$property->id) }}">{{$property->name}}</a></b>
-                </p>
-                <p style="margin-bottom: 5px;">
-                  <small>{{$property->property_address->countries->name}}</small>
-                </p>
-                <p style="padding-top:0px;">
-                  <b class="pb-3">Starting From {{$property->property_price->price}} {{$property->property_price->currency->symbol}}</b><br>
-                  <span class="startingPrice">{{$property->overall_rating}} </span> <small>   - {{$property->reviews->count()}} reviews</small>
-                </p>
+              <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 pt-5 pt-10 pb-10">
+                <div class="box-shdw p-0">
+                  <img class="property-img" src="{{ url($property->cover_photo) }}" alt="{{$property->name}}">
+                  <div class="p-10">
+                      <p class="pt-3 pb-0" style="margin-bottom: 0px;padding-top:10px;">
+                        <b><a target="_blank" href="{{ url('properties/'.$property->id) }}">{{$property->name}}</a></b>
+                      </p>
+                      <p style="margin-bottom: 5px;">
+                        <small>{{$property->property_address->countries->name}}</small>
+                      </p>
+                      <p style="padding-top:0px;">
+                        <b class="pb-3">Starting From {{$property->property_price->price}} {{$property->property_price->currency->symbol}}</b><br>
+                        <span class="startingPrice">{{$property->overall_rating}} </span> <small>   - {{$property->reviews->count()}} reviews</small>
+                      </p>
+                  </div>
+                </div>
               </div>
             @endforeach
         </div>
